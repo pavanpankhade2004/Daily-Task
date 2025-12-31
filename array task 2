@@ -1,0 +1,121 @@
+//BLC
+-----------------
+package com.pavan.array;
+
+public record Course(int id, String name,double fee) {
+
+
+
+}
+-------------------
+package com.pavan.array;
+
+public record RecordOffer(String description) {
+
+
+
+
+}
+----------------------
+package com.pavan.array;
+
+public record Student1(String name,EducationInstitute institute) {
+	
+	public void viewCoursesAndFees()
+	{
+		for (Course c:institute.courses())
+		{
+			System.out.println(c.id()+":"+c.name()+":"+c.fee());
+		}
+	}
+	public void viewOffers()
+	{
+		for(RecordOffer o:institute.Offers())
+		{
+			System.out.println(o.description());
+		}
+	}
+	public void enrollnCourse(int courseid)
+	{
+		institute.enrollStudentCourse(courseid, name);
+	}
+
+}
+------------------------------------------
+package com.pavan.array;
+
+public record EducationInstitute(Course[]courses,RecordOffer[]Offers) {
+	public void enrollStudentCourse(int courseid,String studentName)
+	{
+		boolean found=false;
+		
+		for(Course c:courses)
+		{
+			if(c.id( ) == courseid)
+			{
+				System.out.println(studentName+" enrolled in: "+c.name());
+				found=true;
+				break;
+			}
+		}
+		if(!found)
+		{
+			System.out.println("Course with id "+courseid +" not found");
+		}
+	}
+
+}
+------------------------------------
+===================================================================
+//ELC
+package com.pavan.array;
+
+import java.util.Scanner;
+
+public class StudentEnrollmentProcess {
+
+	public static void main(String[] args) {
+		Course[]courses=
+			{
+					new Course(1,"Java",35000.0),
+					new Course(1,".net",30000.0),
+					new Course(1,"python",32000.0),
+			};
+		RecordOffer[]offers=
+			{
+					new RecordOffer ("Special discount:Get 20% off on all courses"),
+					new RecordOffer("Limited time offer:enroll in any two courses and get one course fees!")
+			};
+		EducationInstitute institute =new EducationInstitute(courses,offers);
+			
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter Student name:");
+		String studentName=sc.nextLine();
+		
+		Student1 student=new Student1(studentName,institute);
+		
+		student.viewCoursesAndFees();
+		student.viewOffers();
+		
+		System.out.println("Enter course id to enroll:");
+		int courseid=sc.nextInt();
+		
+		student.enrollnCourse(courseid);
+		
+				
+	}
+
+}
+=======================================================
+OUTPUT:
+Enter Student name:
+pavan
+1:Java:35000.0
+1:.net:30000.0
+1:python:32000.0
+Special discount:Get 20% off on all courses
+Limited time offer:enroll in any two courses and get one course fees!
+Enter course id to enroll:
+1
+pavan enrolled in: Java
+=======================================
