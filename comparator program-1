@@ -1,0 +1,101 @@
+***Collection comparator***
+//blc
+package com.pavan.comparator;
+
+public record Customer(int id ,String name,double bill) {
+
+	
+}
+=======================================================
+//elc
+package com.pavan.comparator;
+
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.Scanner;
+
+public class CustomerComparator {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		
+		System.out.println("Enter number of customer:");
+		int n=sc.nextInt();
+		
+		Customer[] customers=new Customer[n];
+		
+		for (int i=0;i<n;i++)
+		{
+			System.out.println("Enter customer details:"+(i+1));
+			
+			System.out.println("id: ");
+			int id=sc.nextInt();
+			sc.nextLine();
+			
+			System.out.println("Name: ");
+			String name=sc.nextLine();
+			
+			System.out.println("Bill: ");
+			double bill=sc.nextDouble();
+			Customer c=new Customer(id, name, bill);
+			customers [i]=c;
+		}
+		Comparator<Customer> byId=new Comparator<Customer>() {
+			
+			@Override
+			public int compare(Customer o1, Customer o2) {
+				return Integer.compare(o1.id(), o2.id());
+			}
+		};
+		
+		Arrays.sort(customers,byId);
+		System.out.println("By ID :: "+Arrays.toString(customers));
+		
+		Comparator<Customer> byName=new Comparator<Customer>() {
+			
+			@Override
+			public int compare(Customer o1, Customer o2) {
+				
+				return o1.name().compareTo(o2.name());
+			}
+		};
+		Arrays.sort(customers,byName);
+		System.out.println("By Name  :: "+Arrays.toString(customers));
+
+		//System.out.println("By Bill :: "+Arrays.toString(customers));
+	
+	Comparator<Customer> byBill=new Comparator<Customer>() {
+		
+		@Override
+		public int compare(Customer p1, Customer p2) {
+			
+			return  p1.name().compareTo(p1.name());			
+		}
+			};
+	Arrays.sort(customers,byBill);
+	System.out.println("By Bill :: "+Arrays.toString(customers));
+	}
+
+}
+=====================
+OUTPUT:=
+Enter number of customer:
+2
+Enter customer details:1
+id: 
+11
+Name: 
+pavan
+Bill: 
+300
+Enter customer details:2
+id: 
+2
+Name: 
+om
+Bill: 
+400
+By ID :: [Customer[id=2, name=om, bill=400.0], Customer[id=11, name=pavan, bill=300.0]]
+By Name  :: [Customer[id=2, name=om, bill=400.0], Customer[id=11, name=pavan, bill=300.0]]
+By Bill :: [Customer[id=2, name=om, bill=400.0], Customer[id=11, name=pavan, bill=300.0]]
+
