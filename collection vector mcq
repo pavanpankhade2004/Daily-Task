@@ -1,0 +1,261 @@
+//Collection Vector MCQ //
+=======================
+Q1)What will be the output of the following Java code?
+
+import java.util.*;
+class VectorDemo
+{
+public static void main(String args[])
+{
+Vector obj = new Vector(4,2);
+obj.addElement(new Integer(3));
+obj.addElement(new Integer(2));
+obj.addElement(new Integer(5));
+System.out.println(obj.elementAt(1));
+}
+}
+
+ANS:2
+==============================================================
+
+Q2) What will be the output of the following Java code?
+import java.util.*;
+class VectorDemo 
+{
+ public static void main(String args[]) 
+ {
+ Vector obj = new Vector(4,2);
+ obj.addElement(new Integer(3));
+ obj.addElement(new Integer(2));
+ obj.addElement(new Integer(5));
+ System.out.println(obj.capacity());
+ }
+ }
+ANS:=4
+================================================================
+
+Q3) What will be the output of the following Java code?
+import java.util.*;
+class VectorDemo 
+{
+ public static void main(String args[]) {
+ Vector obj = new Vector(4,2);
+ obj.addElement(new Integer(3));
+ obj.addElement(new Integer(2));
+ obj.addElement(new Integer(6));
+ obj.insertElementAt(new Integer(8), 2);
+ System.out.println(obj);
+ } 
+}
+ANS:=3,2,8,6
+===============================================================
+
+Q4) What will be the output of the following Java code?
+import java.util.*;
+class VectorDemo 
+{
+ public static void main(String args[]) 
+ {
+ Vector obj = new Vector(4,2);
+ obj.addElement(new Integer(3));
+ obj.addElement(new Integer(2));
+ obj.addElement(new Integer(5));
+ obj.removeAll(obj);
+ System.out.println(obj.isEmpty());
+ }
+ }
+ANS:=True
+=====================================================================
+Q5) What will be the output of the following Java program?
+import java.util.Vector;
+public class Test 
+{
+    public static void main(String[] args) 
+    {
+        Vector<String> v1 = new Vector<>();
+        Vector<String> v2 = new Vector<>();
+
+        v1.add("Java");
+        v1.add("Technology");
+
+        v2.add("Java");
+        v2.add("Technology");
+
+        System.out.println(v1.equals(v2));
+        System.out.println(v1.hashCode());
+        System.out.println(v2.hashCode());
+    }
+}
+ANS:=
+true
+385486571
+385486571
+==================================================================
+Q6) What will be the output of the following Java program?
+import java.util.ArrayList;
+public class Test 
+{
+	public static void main(String args[]) 
+	{
+		ArrayList<String> obj1 = new ArrayList<String>();
+		ArrayList<String> obj2 = new ArrayList<String>();
+		obj1.add("A");
+		obj1.add("B");
+		obj2.add("A");
+		obj2.add(1, "B");
+		System.out.println(obj1.equals(obj2));
+		System.out.println(obj1.hashCode());
+		System.out.println(obj2.hashCode());
+	}
+}
+ANS:=
+true
+3042
+3042
+
+=====================================================
+
+Q7) What will be the output of the following Java program?
+import java.util.ArrayList;
+import java.util.List;
+public class ArrayListTest 
+{
+public static void main(String[] args)
+{
+ List<String> list = new ArrayList<String>();
+ list.add("Hyderabad");
+ list.add(0, "New York");
+ list.add("Mumbai");
+ list.add(2, "Sydney");
+ System.out.println(list);
+ }
+}
+ANS:=New York
+     Hyderabad
+     Sydney
+     Mumbai 
+====================================================
+Q8) What will be the output of the following Java program?
+import java.util.List;
+public class ArrayListTest 
+{
+public static void main(String[] args)
+{
+ List<String> list = new ArrayList<String>();
+ list.add("Orange");
+ list.add(0, "Banana");
+ 
+ ArrayList<String> arList = new ArrayList<>();
+ arList.add("Apple");
+ list.add("Grapes");
+ list.addAll(3, arList);
+ System.out.println(list);
+ }
+}
+ANS:=
+   Banana
+   Orange
+   Grapes
+   Apple
+   =====================================================
+Q9) What will be the output of the following Java program?
+import java.util.ArrayList;
+public class ArrayListTest {
+public static void main(String[] args)
+{
+ ArrayList<String> list = new ArrayList<String>();
+ list.add(null);
+ list.add(0, "A");
+ list.add(3, "B");
+ list.add(1, "C");
+ System.out.println(list);
+ }
+}
+ANS:=
+ Runtime.Exceptione
+====================================================
+Q10) What will be the output of the following Java program?
+import java.util.ArrayList;
+public class ArrayListTest {
+public static void main(String[] args)
+{
+ ArrayList<String> list = new ArrayList<String>();
+ list.add(null);
+ list.add(0, "A");
+ list.add(2, "B");
+ list.add(1, "C");
+ System.out.println(list);
+ }
+}
+ANS:=
+A C Null B
+==================================================
+Q11) What is the output of the following code.
+import java.util.ArrayList;
+public class ArrayListTest {
+public static void main(String[] args)
+{
+ ArrayList<String> list = new ArrayList<String>();
+ list.add(null);
+ list.add(0, "A");
+ list.add(null);
+ list.add(2, "B");
+ list.add("20");
+ list.add(1, "C");
+ System.out.println(list);
+ }
+}
+ANS:=
+    A C null B null 20
+==================================================
+Q12) What is the output of the following code.
+import java.util.ArrayList;
+public class ArrayListTest {
+public static void main(String[] args)
+{
+ ArrayList<String> list = new ArrayList<String>();
+ list.add(null);
+ list.add(0, "A");
+ list.add(null);
+ list.add(2, "B");
+ list.add("20");
+ list.add(1, "C");
+ System.out.println(list);
+ }
+}
+ANS:=A ,c,null,B,null,20
+    
+==================================================
+Q13) What is the output of the following code.
+import java.util.ArrayList;
+public class ArrayListTest {
+public static void main(String[] args)
+{
+ ArrayList<String> list = new ArrayList<>();
+ list.add(12);
+ list.add(16);
+ list.add(34);
+ list.add(78);
+ list.remove(12);
+ System.out.println(list);
+ }
+}
+ANS:
+   Compilation error
+====================================================
+Q14) What is the output of the following code.
+import java.util.ArrayList;
+public class ArrayListTest {
+public static void main(String[] args)
+{
+ ArrayList<String> list = new ArrayList<>();
+ list.add('a');
+ list.add('b');
+ list.add('c');
+ list.add('d');
+ list.remove('c');
+ System.out.println(list);
+ }
+}
+ANS:=a,b,d
+===================================================
